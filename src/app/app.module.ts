@@ -3,14 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { QuillModule } from "ngx-quill";
+import { MultiSelectComponent } from './multi-select/multi-select.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule, MatCheckboxModule } from "@angular/material";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MultiSelectComponent
   ],
   imports: [
     BrowserModule,
-    QuillModule
+    QuillModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

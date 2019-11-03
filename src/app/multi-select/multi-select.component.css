@@ -1,0 +1,21 @@
+input{
+    margin: auto 10px;
+}
+
+.dropdown{
+    min-width: 100px;
+    border: 1px solid grey;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+.dropdownMenu{
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+.selectAll {
+    padding: 10px 15px;
+}
+.options{
+    padding: 10px 30px;
+    border-top: 1px solid grey;
+}
