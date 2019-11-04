@@ -9,10 +9,23 @@ export class MultiSelectComponent implements OnInit {
 
   @Input() data: string[];
   hideMenu: boolean = false
+  optionsMap: object = {};
   constructor() { }
 
   ngOnInit() {
+    
+    this.data.map((datum) => {
+      this.optionsMap[datum] = false;
+    })
+    console.log(this.optionsMap);
+    
+  }
 
+  selectAllToggle() {
+    console.log("Here");
+    this.data.map((datum) => {
+      this.optionsMap[datum] = !this.optionsMap[datum];;
+    })
   }
 
 }

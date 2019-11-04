@@ -5,11 +5,11 @@
       </div>
       <div class="dropdownMenu" [hidden]="hideMenu">
         <div class="selectAll">
-          <input id="selctAllCb" type="checkbox" >
+          <input id="selctAllCb" type="checkbox" (click)="selectAllToggle()">
           <label for="selectAllCb">Select All</label>
         </div>
         <div class="options" *ngFor="let option of data">
-          <input id="dropdownMenu" type="checkbox" [value]="option">
+          <input id="dropdownMenu" type="checkbox" [value]="option" [checked]="optionsMap[option]">
           <label for="dropdownMenu">{{option}}</label>
         </div>
       </div>
