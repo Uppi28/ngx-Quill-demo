@@ -8,8 +8,21 @@ input{
     border-radius: 5px;
 }
 
-.searchField{
+.selectedValuesHolder{
     width: 90%;
+}
+.selectedValue{
+    padding: 5px 10px;
+    border: 1px solid #337ab7;
+    background: #337ab7;
+    color: white;
+    margin: 0 5px;
+    border-radius: 3px;
+}
+
+#searchField:empty::before {
+    content: 'Search';
+    color: grey;
 }
 
 .dropdownMenu{
@@ -18,8 +31,12 @@ input{
 }
 .selectAll {
     padding: 10px 15px;
+    border-bottom: 1px solid grey;
+}
+
+.searchField{
+    border-bottom: 1px solid grey;
 }
 .options{
     padding: 10px 30px;
-    border-top: 1px solid grey;
 }

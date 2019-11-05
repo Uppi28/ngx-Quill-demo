@@ -9,9 +9,12 @@ import * as $ from 'jquery';
 export class MultiSelectComponent implements OnInit {
 
   @Input() data: string[];
+  @Input() styles: {};
   filteredData: string[] = [];
   hideMenu: boolean = false
   optionsMap: object = {};
+  selectAllChecked: boolean = false;
+  selectedValues: string[] = [];
   constructor() { }
 
   ngOnInit() {
@@ -21,15 +24,24 @@ export class MultiSelectComponent implements OnInit {
     })
   }
 
-  updateSelectAll() {
-    let checkSelectAll = this.filteredData.map((datum) => {
-      return this.optionsMap[datum];
+  updateSelectedValues() {
+    this.selectedValues.length = 0;
+    this.data.map((datum) => {
+      if(this.optionsMap[datum]) {
+        this.selectedValues.push(datum);
+      }
     })
+  }
+
+  updateSelectAll() {
+    let checkSelectAll = this.filteredData.map((datum) => this.optionsMap[datum]);
+    this.selectAllChecked = $("#selectAllCb")[0].checked
     if(checkSelectAll.indexOf(false) !== -1){
-      $("#selectAllCb")[0].checked = false
+       this.selectAllChecked = false
     } else {
-      $("#selectAllCb")[0].checked = true;
+      this.selectAllChecked = true;
     }
+    this.updateSelectedValues()
   }
 
   updateOptions(searchValue) {
@@ -40,7 +52,7 @@ export class MultiSelectComponent implements OnInit {
     this.updateSelectAll()
   }
 
-  openDropdown() {
+  startSearch() {
     let searchValue = $('#searchField')[0].innerHTML
     if (searchValue !== "") {
       this.updateOptions(searchValue);
@@ -54,6 +66,7 @@ export class MultiSelectComponent implements OnInit {
     this.filteredData.map((datum) => {
       this.optionsMap[datum] = $("#selectAllCb")[0].checked;
     })
+    this.updateSelectedValues()
   }
 
   toggleEach(option) {

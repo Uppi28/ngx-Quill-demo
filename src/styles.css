@@ -2,8 +2,8 @@
 
 html, body { 
     height: 100%;
-    background: black!important;
-    color: white!important;
+    /* background: black!important;
+    color: white!important; */
 }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
 
