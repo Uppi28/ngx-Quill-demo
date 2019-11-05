@@ -13,29 +13,36 @@ export class MultiSelectComponent implements OnInit {
   @Input() allowAlias: boolean;
   filteredData: string[] = [];
   hideMenu: boolean = false
-  optionsMap: object = {};
+  optionsMap: object[] = [];
   selectAllChecked: boolean = false;
   selectedValues: string[] = [];
   constructor() { }
 
   ngOnInit() {
+    // Copying input data so that it doesnt get mutated while searching
     this.filteredData = [...this.data];
+    // Creating the mapped object to store aliasName and checked value to true or false
     this.filteredData.map((datum) => {
-      this.optionsMap[datum] = false;
+      let tempObj = {};
+      tempObj['aliasName'] = datum;
+      tempObj['checked'] = false;
+      this.optionsMap[datum] = tempObj;
     })
   }
 
+  //The displayed values in chips format: Updating that array 
   updateSelectedValues() {
     this.selectedValues.length = 0;
     this.data.map((datum) => {
-      if(this.optionsMap[datum]) {
+      if(this.optionsMap[datum]['checked']) {
         this.selectedValues.push(datum);
       }
     })
   }
 
+  // Updating select all checkbox based on multiple conditions
   updateSelectAll() {
-    let checkSelectAll = this.filteredData.map((datum) => this.optionsMap[datum]);
+    let checkSelectAll = this.filteredData.map((datum) => this.optionsMap[datum]['checked']);
     this.selectAllChecked = $("#selectAllCb")[0].checked
     if(checkSelectAll.indexOf(false) !== -1){
        this.selectAllChecked = false
@@ -45,6 +52,7 @@ export class MultiSelectComponent implements OnInit {
     this.updateSelectedValues()
   }
 
+  // updating options display array while searching
   updateOptions(searchValue) {
     this.filteredData = [...this.data];
     this.filteredData = [...this.filteredData.filter((el) => {
@@ -53,6 +61,7 @@ export class MultiSelectComponent implements OnInit {
     this.updateSelectAll()
   }
 
+  // function to trigger while seacrh value is being entered: for each keyup event
   startSearch() {
     let searchValue = $('#searchField')[0].innerHTML
     if (searchValue !== "") {
@@ -63,15 +72,17 @@ export class MultiSelectComponent implements OnInit {
     }
   }
 
+  // Toggle between selectAll and unselectAll state
   selectAllToggle() {
     this.filteredData.map((datum) => {
-      this.optionsMap[datum] = $("#selectAllCb")[0].checked;
+      this.optionsMap[datum]['checked'] = $("#selectAllCb")[0].checked;
     })
     this.updateSelectedValues()
   }
 
+  // function to trigger on toggle of each option
   toggleEach(option) {
-    this.optionsMap[option] = !this.optionsMap[option];
+    this.optionsMap[option]['checked'] = !this.optionsMap[option]['checked'];
     this.updateSelectAll()
   }
 

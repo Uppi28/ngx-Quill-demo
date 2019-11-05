@@ -49,3 +49,10 @@ label{
     word-break: break-word;
     margin: 0;
 }
+.aliasNameInput{
+    border: none;
+    border-bottom: 1px solid grey;
+    border-radius: 3px;
+    padding: 5px 15px;
+    float: right;
+}

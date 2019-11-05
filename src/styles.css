@@ -28,3 +28,10 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     align-items: center;
     justify-content: flex-start;
 }
+
+.width50{
+    width: 50%;
+}
+.pull-left{
+    float: left;
+}

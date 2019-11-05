@@ -6,6 +6,7 @@ import { QuillModule } from "ngx-quill";
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatCheckboxModule } from "@angular/material";
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { MatInputModule, MatCheckboxModule } from "@angular/material";
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     QuillModule,
     BrowserAnimationsModule,
     MatInputModule,

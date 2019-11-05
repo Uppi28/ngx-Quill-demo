@@ -15,9 +15,15 @@
     </div>
     <div id="searchField" class="searchField options" (keyup)="startSearch()" contenteditable="true"></div>
     <div class="options alignMiddleLeft" *ngFor="let option of filteredData">
-      <input class="dropdownMenu" type="checkbox" [value]="option" [checked]="optionsMap[option]"
-        (click)="toggleEach(option)">
-      <label for="dropdownMenu">{{option}}</label>
+      <div class="width50 pull-left alignMiddleLeft">
+        <input class="dropdownMenu" type="checkbox" [value]="option" [checked]="optionsMap[option]['checked']"
+          (click)="toggleEach(option)">
+        <label for="dropdownMenu">{{option}}</label>
+      </div>
+      <div class="alignMiddleLeft width50 pull-left">
+        <input class="aliasNameInput" type="text" [value]="optionsMap[option]['aliasName']"
+          [(ngModel)]="optionsMap[option]['aliasName']">
+      </div>
     </div>
   </div>
 </div>
