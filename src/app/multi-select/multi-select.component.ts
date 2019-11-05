@@ -10,6 +10,7 @@ export class MultiSelectComponent implements OnInit {
 
   @Input() data: string[];
   @Input() styles: {};
+  @Input() allowAlias: boolean;
   filteredData: string[] = [];
   hideMenu: boolean = false
   optionsMap: object = {};

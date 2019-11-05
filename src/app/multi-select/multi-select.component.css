@@ -16,8 +16,11 @@ input{
     border: 1px solid #337ab7;
     background: #337ab7;
     color: white;
-    margin: 0 5px;
+    margin: 5px;
     border-radius: 3px;
+    float: left;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 #searchField:empty::before {
@@ -39,4 +42,10 @@ input{
 }
 .options{
     padding: 10px 30px;
+}
+
+label{
+    max-width: 90%;
+    word-break: break-word;
+    margin: 0;
 }
