@@ -42,7 +42,9 @@ export class MultiSelectComponent implements OnInit {
   // Updating select all checkbox based on multiple conditions
   updateSelectAll() {
     let checkSelectAll = this.filteredData.map((datum) => this.optionsMap[datum]['checked']);
-    if(checkSelectAll.indexOf(false) !== -1){
+    console.log(checkSelectAll,checkSelectAll.indexOf(false));
+    
+    if(checkSelectAll.indexOf(false) === -1){
       $("#selectAllCb")[0].checked = false;
     } else {
       $("#selectAllCb")[0].checked = true;
