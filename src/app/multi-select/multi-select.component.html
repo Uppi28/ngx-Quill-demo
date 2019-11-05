@@ -20,7 +20,7 @@
           (click)="toggleEach(option)">
         <label for="dropdownMenu">{{option}}</label>
       </div>
-      <div class="alignMiddleLeft width50 pull-left">
+      <div class="alignMiddleLeft width50 pull-left" *ngIf="allowAlias">
         <input class="aliasNameInput" type="text" [value]="optionsMap[option]['aliasName']"
           [(ngModel)]="optionsMap[option]['aliasName']">
       </div>
