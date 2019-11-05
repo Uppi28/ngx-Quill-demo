@@ -14,7 +14,6 @@ export class MultiSelectComponent implements OnInit {
   filteredData: string[] = [];
   hideMenu: boolean = false
   optionsMap: object[] = [];
-  selectAllChecked: boolean = false;
   selectedValues: string[] = [];
   constructor() { }
 
@@ -43,11 +42,10 @@ export class MultiSelectComponent implements OnInit {
   // Updating select all checkbox based on multiple conditions
   updateSelectAll() {
     let checkSelectAll = this.filteredData.map((datum) => this.optionsMap[datum]['checked']);
-    this.selectAllChecked = $("#selectAllCb")[0].checked
     if(checkSelectAll.indexOf(false) !== -1){
-       this.selectAllChecked = false
+      $("#selectAllCb")[0].checked = false;
     } else {
-      this.selectAllChecked = true;
+      $("#selectAllCb")[0].checked = true;
     }
     this.updateSelectedValues()
   }

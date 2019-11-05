@@ -10,7 +10,7 @@
   </div>
   <div class="dropdownMenu" [hidden]="hideMenu">
     <div class="selectAll alignMiddleLeft">
-      <input id="selectAllCb" type="checkbox" (click)="selectAllToggle()" [checked]="selectAllChecked">
+      <input id="selectAllCb" type="checkbox" (click)="selectAllToggle()">
       <label for="selectAllCb">Select All</label>
     </div>
     <div id="searchField" class="searchField options" (keyup)="startSearch()" contenteditable="true"></div>
