@@ -45,9 +45,9 @@ export class MultiSelectComponent implements OnInit {
     console.log(checkSelectAll,checkSelectAll.indexOf(false));
     
     if(checkSelectAll.indexOf(false) === -1){
-      $("#selectAllCb")[0].checked = false;
-    } else {
       $("#selectAllCb")[0].checked = true;
+    } else {
+      $("#selectAllCb")[0].checked = false;
     }
     this.updateSelectedValues()
   }
