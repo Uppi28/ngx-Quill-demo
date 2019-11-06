@@ -1,4 +1,4 @@
-<div [ngStyle]="{'width': styles.width}">
+<div [ngStyle]="styles">
   <div class="dropdown alignLeft" (click)="hideMenu = !hideMenu">
     <div class="selectedValuesHolder alignLeft">
       <div *ngIf="selectedValues.length !== 0">
@@ -20,7 +20,7 @@
       <div class="width50 pull-left alignMiddleLeft">
         <label [for]="option" class="container">{{option}}
             <input [id]="option" class="dropdownMenu" type="checkbox" [value]="option" [checked]="optionsMap[option]['checked']"
-            (click)="toggleEach(option)">
+              (click)="toggleEach(option)">
             <span class="checkmark"></span>
         </label>
       </div>

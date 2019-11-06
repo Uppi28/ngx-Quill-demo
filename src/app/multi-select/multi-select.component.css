@@ -55,6 +55,7 @@ label{
     border-radius: 3px;
     padding: 5px 15px;
     float: right;
+    width: calc(100% - 30px);
 }
 
 /* Styling for input checkboxes */
@@ -65,7 +66,6 @@ label{
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
