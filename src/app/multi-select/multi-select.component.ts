@@ -44,10 +44,10 @@ export class MultiSelectComponent implements OnInit {
     let checkSelectAll = this.filteredData.map((datum) => this.optionsMap[datum]['checked']);
     console.log(checkSelectAll,checkSelectAll.indexOf(false));
     
-    if(checkSelectAll.indexOf(false) === -1){
-      $("#selectAllCb")[0].checked = true;
-    } else {
+    if(checkSelectAll.indexOf(false) !== -1 || checkSelectAll.length === 0){
       $("#selectAllCb")[0].checked = false;
+    } else {
+      $("#selectAllCb")[0].checked = true;
     }
     this.updateSelectedValues()
   }
